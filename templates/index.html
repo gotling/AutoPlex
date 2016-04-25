@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Next Movie</title>
+
+    <link rel="stylesheet" href="/static/pure-0.6.0-min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/plex-icon.png" type="image/png" />
+    <script>
+    function art(art) {
+        document.querySelector("body").style.backgroundImage = "url('http://{{ plex_server_address }}" + art + "')"
+    }
+    </script>
+</head>
+<body>
+<div class="content-wrapper">
+    <div class="content">
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h1>Next Movie</h1>
+
+                <form method="post" class="pure-form">
+                    <select name="movie" onchange="art(this.options[this.selectedIndex].dataset.art)">
+                        {% for movie in movies %}
+                            <option value="{{ movie.id }}"{% if movie.id == todays_id %}
+                                    selected {% endif %} data-art="{{ movie.art }}">{{ movie.title }}</option>
+                                {% if movie.id == todays_id %}
+                                <script>art('{{ movie.art }}');</script>
+                                {% endif %}
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="pure-button pure-button-primary">Save</button>
+                </form>
+            </div>
+            <div class="pure-u-1-1">
+                <ul class="history">
+                    {% for movie in history %}
+                    <li>
+                        {{ movie.day }} {{ movie.title }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+        </div>
+    </div>
+</body>
+</html>
