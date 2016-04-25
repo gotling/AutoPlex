@@ -1,7 +1,9 @@
 # AutoPlex
 A small service for auto starting a movie every night. Very easy to use (after configured).
 
-We have a cinema on playing movies every night at 19:00. A laptop with Windows is running Plex Media Server and hosting the movies. On that same machine AutoPlex is running on port 80. Every evening before it gets dark a projector with a Raspberry Pi attached to it is carried out and connected to power and speakers. At 18:30 a power socket timer is turned on giving power to projector, Raspberry and speakers. For half an hour the screen saver shows random pictures and then at 19:00 a scheduled task executes the batch script which requests a url in the Plex server API which starts the movie. After the movie has started the movie for tomorrow is set in a web page.
+We have a cinema on playing movies every night at 19:00. A laptop with Windows is running Plex Media Server and hosting the movies. On that same machine AutoPlex is running on port 80. Every evening before it gets dark a projector with a Raspberry Pi attached to it is carried out and connected to power and speakers.
+
+At 18:30 a power socket timer is turned on giving power to projector, Raspberry and speakers. For half an hour the screen saver shows random pictures and then at 19:00 a scheduled task executes the batch script which requests a url in the Plex server API which starts the movie. After the movie has started the movie for tomorrow is set in a web page.
 
 ![Screenshot](/web/screenshot.png)
 
@@ -15,7 +17,7 @@ IP of the server hosting the media.
 **plex_server_port:**
 Default 32000
 
-**plex_server_identifier**
+**plex_server_identifier:**
 Open ```http://<plex_server_ip>:<plex_server_port>``` in a web browser and find the value of *machineIdentifier*
 
 **plex_client_ip:**
@@ -48,11 +50,13 @@ We use [RasPlex](http://www.rasplex.com/) on the Raspberry Pi. Some adjustments 
 **Disable rainbox**
 
 **Custom boot logo**
+
 It is quite complicated to set you custom logo that shows during startup of RasPlex but is well worth the work. Follow [this guide](https://forums.plex.tv/discussion/163058/guide-use-custom-boot-screens) in the Plex forum for doing it.
 
 # Installation
 ## Requirements
 [Python](https://www.python.org/downloads/)
+
 [curl](https://curl.haxx.se/download.html)
 
 Install Python requirements:
