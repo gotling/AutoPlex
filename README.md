@@ -19,13 +19,13 @@ Default 32000
 Open ```http://<plex_server_ip>:<plex_server_port>``` in a web browser and find the value of *machineIdentifier*
 
 **plex_client_ip:**
-IP of the client playing the media.
+Find it by opening ```http://<plex_server_ip>:<plex_server_port>/clients``` in a web browser and find the value of *host*
 
 **plex_client_port:**
-Find it by opening ```http://<plex_server_ip>:<plex_server_port>/clients``` in a web browser and find the value of *?*
+Same as above, find the value of *port*
 
 **plex_client_identifier:**
-Same as above, find the value of *?*
+Same as above, find the value of *machineIdentifier*
 
 ## auto-plex.py
 **plex_server_address:**
@@ -43,11 +43,12 @@ no other server is running on that port. In Linux that will required running the
 ## RasPlex
 We use [RasPlex](http://www.rasplex.com/) on the Raspberry Pi. Some adjustments is required for optimal function.
 
-**startup delay**
+**Startup delay**
 
-**disable rainbox**
+**Disable rainbox**
 
-**custom boot logo**
+**Custom boot logo**
+It is quite complicated to set you custom logo that shows during startup of RasPlex but is well worth the work. Follow [this guide](https://forums.plex.tv/discussion/163058/guide-use-custom-boot-screens) in the Plex forum for doing it.
 
 # Installation
 ## Requirements
