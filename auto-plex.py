@@ -9,7 +9,7 @@ file_name = 'todays-movie-id.txt'
 history_file_name = 'history.txt'
 plex_server_address = '10.0.0.14:32400'
 section = 1
-http_port = 8000
+http_port = 5000
 
 
 def write_todays_movie(movie_id):
