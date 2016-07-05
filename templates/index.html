@@ -18,20 +18,36 @@
 <div class="content-wrapper">
     <div class="content">
         <div class="pure-g">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category in ['error', 'warning'] %}
+                        <div class="pure-u-1-1 message error">
+                    {% else %}
+                        <div class="pure-u-1-1 message info">
+                    {% endif %}
+                        {{ category|upper }}: {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
             <div class="pure-u-1-1">
                 <h1>Next Movie</h1>
 
                 <form method="post" class="pure-form">
-                    <select name="movie" onchange="art(this.options[this.selectedIndex].dataset.art)">
-                        {% for movie in movies %}
-                            <option value="{{ movie.id }}"{% if movie.id == todays_id %}
-                                    selected {% endif %} data-art="{{ movie.art }}">{{ movie.title }}</option>
-                                {% if movie.id == todays_id %}
-                                <script>art('{{ movie.art }}');</script>
-                                {% endif %}
-                        {% endfor %}
-                    </select>
-                    <button type="submit" class="pure-button pure-button-primary">Save</button>
+                    <fieldset>
+                        <select name="movie" onchange="art(this.options[this.selectedIndex].dataset.art)">
+                            {% for movie in movies %}
+                                <option value="{{ movie.id }}"{% if movie.id == todays_id %}
+                                        selected {% endif %} data-art="{{ movie.art }}">{{ movie.title }}</option>
+                                    {% if movie.id == todays_id %}
+                                    <script>art('{{ movie.art }}');</script>
+                                    {% endif %}
+                            {% endfor %}
+                        </select>
+                        <button type="submit" name="save" class="pure-button pure-button-primary">Save</button>
+                        <button type="submit" name="play" class="pure-button">Play now</button>
+                    </fieldset>
                 </form>
             </div>
             <div class="pure-u-1-1">

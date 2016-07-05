@@ -7,6 +7,10 @@ h1 {
     text-shadow: 2px 2px black;
 }
 
+.pure-button {
+    border-radius: 8px;
+}
+
 .content {
     padding: 2em 1em 0;
 }
@@ -21,4 +25,17 @@ h1 {
     color: white;
     text-shadow: 1px 1px black;
     padding-top: 1em;
+}
+
+.message {
+    font-size: 2em;
+    text-shadow: 2px 2px black;
+}
+
+.error {
+    color: #fd9647;
+}
+
+.info {
+    color: #8fc9ff;
 }
